@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<div class="form-group">
+    <div class="bg-light lter b-b wrapper-md hidden-print">
+ 		 <h1 class="m-n font-thin h3 inline">{{"&nbsp" + "&nbsp" + "&nbsp" +"&nbsp" + name}}</h1>
+	</div>
+	
+<div class="form-group">
+<div class="col-sm-1 col-lg-0"></div>
+	<div class="col-sm-8 col-lg-10" >
+		<div ng-show="ppublish" class="row bg-light lter b-b wrapper-sm hidden-print">
+			<h5 class="text-center" class="m-n font-thin h5">Seguro que desea publicar?</h5>
+			<div class="btn-group col-md-2 col-md-offset-5 text-center">
+				<p>
+					<button  ng-click="publish()" class="btn btn-sm btn-default">Sí</button>
+					<button ng-click="ppublish = false" class="btn btn-sm btn-default">No</button>
+				</p>
+			</div>
+		</div> 	
+		<p ng-show="modifiedDate" class="text-center"><small>Última modificación: {{modified}}</small></p>
+		<p ng-hide="notModified" class="text-center"><small>No se han guardado los cambios</small></p>
+
+		<div id="froala-editor" class="froala-editor">
+			<form id="froala-form" >
+				<textarea  class="selector" style="margin-top: 30px;" placeholder="Type some text" ng-model="content" id='edit' >
+
+				</textarea>
+			</form>
+		</div>
+		<button type="submit" ng-click="send()" class="btn btn-lg btn-default btn-block" class="btn btn-default">Guardar</button>
+
+        <button ng-click="showPublish()" class="btn btn-lg btn-default btn-block" ng-messages="expression" data-toggle="modal" data-target="#myModal" class="btn btn-default">Publicar</button>
+		 <div ng-show="ppublish" class="row bg-light lter b-b wrapper-sm hidden-print">
+			<h5 class="text-center" class="m-n font-thin h5">¿Seguro que desea publicar?</h5>
+			<div class="btn-group col-md-2 col-md-offset-5 text-center">
+				<p>
+					<button  ng-click="publish()" class="btn btn-sm btn-default">Sí</button>
+					<button ng-click="ppublish = false" class="btn btn-sm btn-default">No</button>
+				</p>
+			</div>
+		</div> 	
+
+		<script>
+			$(function() {
+				$('#edit').on('froalaEditor.initialized', function(e, editor) {
+					$('#edit').parents('form').on('submit', function() {
+						
+						console.log($('#edit').val());
+						
+						return false;
+					})
+				}).froalaEditor({
+					  height: 520,
+				      heightMax: 520,
+				      
+					enter : $.FroalaEditor.ENTER_P,
+					placeholderText : null
+				})
+			});
+			
+		</script>
+	</div>
+</div>
+</div>
+

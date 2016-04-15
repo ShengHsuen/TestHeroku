@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="writeMe">
+		<class>com.mett.writeMe.ejb.Binnacle</class>
+		<class>com.mett.writeMe.ejb.Chapter</class>
+		<class>com.mett.writeMe.ejb.City</class>
+		<class>com.mett.writeMe.ejb.Comment</class>
+		<class>com.mett.writeMe.ejb.Country</class>
+		<class>com.mett.writeMe.ejb.LegalEstablishment</class>
+		<class>com.mett.writeMe.ejb.Message</class>
+		<class>com.mett.writeMe.ejb.Mylibrary</class>
+		<class>com.mett.writeMe.ejb.Notification</class>
+		<class>com.mett.writeMe.ejb.Notificationtype</class>
+		<class>com.mett.writeMe.ejb.Pagination</class>
+		<class>com.mett.writeMe.ejb.Payaccount</class>
+		<class>com.mett.writeMe.ejb.Record</class>
+		<class>com.mett.writeMe.ejb.Report</class>
+		<class>com.mett.writeMe.ejb.ReportPK</class>
+		<class>com.mett.writeMe.ejb.Restriction</class>
+		<class>com.mett.writeMe.ejb.Role</class>
+		<class>com.mett.writeMe.ejb.State</class>
+		<class>com.mett.writeMe.ejb.Typereport</class>
+		<class>com.mett.writeMe.ejb.User</class>
+		<class>com.mett.writeMe.ejb.UserHasWritting</class>
+		<class>com.mett.writeMe.ejb.Writting</class>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+
+<div class="wrapper-md">
+	<div class="row">
+		<div class="col-sm-8 col-lg-10  col-sm-offset-1 col-lg-offset-0">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">Denunciar obra </div>
+				<div class="panel-body">
+					<form name="form" id="form" class="form-validation col-sm-10 col-sm-offset-1 ">
+						<h4>Desea denunciar la obra {{Writting.name}} </h4>
+						<p >Tipo de denuncia</p>
+						<div >
+							<select ng-required="false"
+							class="form-control m-b" ng-model="typeSelected">
+								<option ng-repeat="type in types">{{type}}</option>
+							</select>
+						</div>
+							<p>¿Cuál es el problema?</p>
+					<div  >
+						
+							<textarea maxlength="488" type="text" ng-model="description" class="form-control"
+								rows="6" placeholder="La denuncia consiste en..." required></textarea>
+						</div>
+				
+				</form>
+					
+				<div class="col-sm-10 col-sm-offset-1 ">
+					<button type="submit" ng-disabled="form.$invalid" ng-click="saveReport()" class="btn btn-sm btn-primary" style="margin-top:20px">Enviar</button>
+					<button class="btn btn-sm btn-primary" style="margin-top:20px; margin-left:10px"><a href="#app/home">Cancelar</a></button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>

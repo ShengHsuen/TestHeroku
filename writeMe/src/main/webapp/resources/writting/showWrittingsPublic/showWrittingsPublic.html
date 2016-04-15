@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+  <div class="panel panel-default">
+  
+    <div class="panel-heading">
+      Obras publicas
+    </div>
+    
+    <div class="table-responsive"  >
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th>Nombre obra</th>
+            <!--<th>Último en editar</th>
+            <th>Estado</th>-->
+            <th>Abandonar obra</th>
+            <th style="width:30px;"></th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="wr in writting | orderBy:'writtingId':true | filter: {name: ''} " ng-show="wr.typeWritting == 'Pública'" >
+
+          <tr >
+            <td>{{wr.name}}</td>
+            
+            <!--<td><span class="text-ellipsis">{{lastAuthor}}</span></td>
+            <td><span class="text-ellipsis" >{{textAvailable}}</span></td>-->
+
+            <td><button ng-click="leave(wr)" ng-hide="isOwnerList[$index]" class="btn btn-warning">Abandonar</button></td>
+            
+        	<td><button class="btn btn-sm glyphicon glyphicon-trash btn-danger" ng-messages="expression" ng-show="isOwnerList[$index]"  ng-click="deleteWritting(wr.writtingId)" ></button> </td>
+            <td><button ng-click="saveData(wr.mainWritting, wr.name, wr.cantUsers, wr.writtingId, wr)"  class="btn btn-sm btn-default">Entrar</button> </td>
+      
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+    </div>
+  </div>

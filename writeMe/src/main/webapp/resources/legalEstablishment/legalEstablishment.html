@@ -1,0 +1,112 @@
+<meta charset="utf-8">
+<!-- content -->
+<div id="content" class="app-content" role="main">
+
+	<div class="app-content-body " ng-controller="legalEstablishmentCtrl">
+
+
+		<div class="bg-light lter b-b wrapper-md">
+			<h1 class="m-n font-thin h3">Términos y condiciones</h1>
+		</div>
+		<!-- Agregar regla -->
+		<div class="wrapper-md">
+			<button class="btn btn-success btn-addon btn-sm" ng-click="toggle()">
+				<i class="fa fa-plus"></i>Agregar regla
+			</button>
+			<div id="agregarReglas" class=" panel panel-default" ng-show="myVar">
+				<div class="panel-heading font-bold">Agregar regla</div>
+				<div class="panel-body">
+					<form id="createRuleForm" name="createRuleForm"
+						class="form-horizontal form-validation" role="form">
+						<div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-id-1">Nombre</label>
+								<div class="col-sm-10">
+									<input type="text" min="0" maxlength="100" class="form-control"
+										id="name" name="name" required ng-model="name">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Descripción</label>
+								<div class="col-sm-10">
+									<textarea min="0" maxlength="1088" class="form-control"
+										id="description" name="description" required
+										ng-model="description" rows="4" cols="50"> </textarea>
+								</div>
+								<div class="line line-dashed b-b line-lg pull-in"></div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-2">
+									<button type="reset" ng-click="toggle()"
+										class="btn btn-default">Cancelar</button>
+									<button type="submit" class="btn btn-primary"
+										ng-click="saveRule($event)"
+										ng-disabled="createRuleForm.$invalid">Agregar</button>
+
+								</div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<!-- 		MOSTRAR REGLAS -->
+		<div class="wrapper-md">
+			<div id="MostrarReglas" class=" panel panel-default">
+				<div class="panel-heading font-bold">Reglas</div>
+				<div class="panel-body">
+
+					<div class="bg-light lter b-b wrapper-md hidden-print input-group" style=" padding-left: 45px; padding-right: 50px; background-color: #fff; border-bottom: 1px solid #fff;">
+						<input type="text" ng-model="selected"
+							typeahead="state for state in states | filter:$viewValue | limitTo:8"
+							class="form-control input-sm bg-light no-border rounded padder"
+							placeholder="Buscar reglas..."> <span
+							class="input-group-btn">
+							<button type="submit" class="btn btn-sm bg-light rounded">
+								<i class="fa fa-search"></i>
+							</button>
+						</span>
+					</div>
+					<div class="m-l-lg panel b-a"
+						ng-repeat="pane in legalList | filter:{name:selected}" style="margin-right: 30px;
+">
+						<div class="panel-heading pos-rlt b-b b-light">
+							<h4 style="display: inline-block;">{{pane.name}}</h4>
+							<span class=" pull-right"
+								style="width: 20px; display: inline-block; margin: 5px 15px;" >
+								<button ng-click="deleteLegal(pane.legal_establishmentId)">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button> <!-- 					 <button class="btn btn-sm btn-primary" ng-click="ppublish = !ppublish"  ng-messages="expression" data-toggle="modal" data-target="#myModal" >Eliminar</button> 
+            <div ng-show="ppublish" class="row bg-light lter b-b wrapper-sm hidden-print">
+			<h5 class="text-center" class="m-n font-thin h5">Seguro que deseas eliminar la regla {{pane.name}} ?</h5>
+			<div class="btn-group col-md-2 col-md-offset-5 text-center">
+				<p>
+					<button   ng-click="deleteLegal(pane.legal_establishmentId)"  class="btn btn-sm btn-default">Sí</button>
+					<button class="btn btn-sm btn-default" ng-click="ppublish = !ppublish"   ng-messages="expression" data-toggle="modal" data-target="#myModal"  >No</button>
+				</p>
+			</div>
+			
+		</div> 	 -->
+							</span>
+
+						</div>
+						<div class="panel-body">
+
+							<p>{{pane.description}}</p>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<!-- !mOSTRAR REGLAS -->
+
+	</div>
+
+	<!-- /content -->

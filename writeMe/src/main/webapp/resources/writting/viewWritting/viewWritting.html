@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+
+
+<!-- content -->
+<div id="content" class="app-content" role="main">
+	<div class="app-content-body ">
+
+
+		<div class="hbox hbox-auto-xs hbox-auto-sm">
+			<div class="col">
+				<div
+					style="background-image: url({{img}}); center center; background-size: cover; margin-bottom: -60px;">
+					<div class="wrapper-lg bg-white-opacity">
+						<div class="row m-t">
+							<div class="col-xs-12">
+								<div class="col-md-1 col-xs-0"></div>
+								<div class="col-xs-5 col-md-4" style="margin-top: -40px;">
+									<img src="{{img}}" alt="{{name}}" height="281" width="180">
+								</div>
+								<div class="clear m-b col-xs-7  col-md-5">
+									<div class="m-b m-t-sm">
+										<span class="h1 text-black">{{name}}</span>
+
+									</div>
+									<!-- 	<p>
+										<span class="m-l text-black ">Autor</span>
+									</p> -->
+									<p>
+										<small class="h4 text-black">{{category}}</small>
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper bg-white b-b" style="margin-bottom: 5px;">
+					<ul class="nav nav-pills nav-sm">
+						<li class="col-xs-10"></a></li>
+						<li class="col-xs-1" style="margin-top: -20px;">
+						<button class=" pull-right btn m-b-xs w-xs btn-dark btn-rounded" ng-click="generatePDF()" >
+                            Descargar
+						</button>
+						</li>
+					</ul>
+						
+				</div>
+				<div class="col-xs-1"></div>
+				<div class="padder text-justify fr-viewx col-xs-10 bg-white"
+					style="-webkit-user-select: none; -moz-user-select: none; user-select: none; padding: 20px;">
+						<h3 class="text-center">Sipnosis</h3>
+						<p>{{description}}</p>
+						<hr>
+						<h3 class="text-center">Contenido</h3>
+						<p id="preview"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /content -->
+

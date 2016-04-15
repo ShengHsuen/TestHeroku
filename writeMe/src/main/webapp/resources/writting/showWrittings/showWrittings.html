@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+
+	   
+     <div class="col-sm-3 col-lg-2  col-sm-offset-1 text-center" ng-repeat="wr in writting  | orderBy:'writtingId':true" ng-show="wr.typeWritting == 'Personal'" >
+         
+          <form role="form"  height="394">
+          <div class="panel-body">
+           <h4 >{{wr.name}}</h4>
+              <label style="height: 55px;">{{wr.category}}</label>
+            </div>
+<!--             <div class="form-group">
+              <label> {{wr.description}}</label>
+            </div> -->
+		        <div class="form-group overlay info">
+		        	<img ng-src="{{wr.image}}" width="130" height="194" ng-click="saveData(wr.content, wr.name, wr.cantUsers, wr.writtingId)" style="cursor: pointer;"></img>
+		        </div>
+		        <div ng-show="ppublish" class="row bg-light lter b-b wrapper-sm hidden-print">
+					<h5 class="text-center" class="m-n font-thin h5">¿Desea eliminar la obra {{wr.name}} ?</h5>
+					<div class="btn-group  col-md-8 col-lg-10 col-md-offset-2  col-lg-offset-1 text-center">
+						<p>
+							<button ng-click="deleteWritting(wr.writtingId)"  class="btn btn-sm btn-default">Sí</button>
+							<button class="btn btn-sm btn-default" ng-click="ppublish = !ppublish"   ng-messages="expression" data-toggle="modal" data-target="#myModal">No</button>
+						</p>	
+					</div>
+		       </div>	
+		        <button  class="btn btn-sm glyphicon glyphicon-trash btn-danger" ng-click="ppublish = !ppublish"  ng-messages="expression" data-toggle="modal" data-target="#myModal" ></button> 
+          </form>
+        </div>
+      </div>
+
+	<!-- /content -->

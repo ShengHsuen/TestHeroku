@@ -1,0 +1,86 @@
+<meta charset="utf-8">
+
+<div class="wrapper-md">
+	<div class="row">
+		<div class="col-sm-8 col-lg-10  col-sm-offset-1 col-lg-offset-0">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">Crear obra</div>
+				<div class="panel-body">
+					<form name="form" id="form" class="form-validation">
+						<div class="form-group">
+							<label>Título</label> <input maxlength="45" type="text" ng-model="name"
+								class="form-control" placeholder="Título de la obra" required>
+						</div>
+						<div class="form-group">
+							<label>Descripción</label>
+							<textarea maxlength="488" type="text" ng-model="description" class="form-control"
+								rows="4" placeholder="La obra consiste en..." required></textarea>
+						</div>
+						<label class="col-sm-2 control-label">Tipo</label>
+						<div class="col-sm-10">
+							<select ng-click="chkIfPersonal()" ng-required="false"
+							class="form-control m-b" ng-model="typeSelected">
+								<option ng-repeat="type in types">{{type}}</option>
+							</select>
+						</div>
+						<label class="col-sm-2 control-label">Categoría</label>
+						<div class="col-sm-10">
+							<select name="account" class="form-control m-b"
+								ng-model="cateSelected" required>
+								<option ng-repeat="cate in category">{{cate}}</option>
+							</select>
+						</div>
+						<div ng-show="showCantUsers">
+							<label class="col-sm-2 control-label">Invitados</label>
+							<div class="col-sm-10">
+							<input type="number" min="0" max="10" ng-model="cantUsers" required style="margin-bottom: 20px;"></input>
+							</div>
+						</div>
+
+						<label class="col-sm-2 control-label">Portada</label>
+						<!-- <div class="col-sm-10">
+		     	   <input type="file" name="inputfile" required accept=".png , .jpg, .jpeg" ng-file-select="onFileSelect($files)" >
+          		</div> -->
+						<form id="form1">
+							<input type='file' id="imgInp" accept=".jpg, .jpeg"
+								ng-file-select="onFileSelect($files)" style="color: rgb(255, 255, 255);"/> 
+					<!-- 		<div class="form-group">
+								<div class="col-sm-10">
+									<input style="position: absolute; clip: rect(0px, 0px, 0px, 0px);"
+										id="filestyle-0" ui-jq="filestyle" data-icon="false" accept=".png , .jpg, .jpeg"
+								ng-file-select="onFileSelect($files)" 
+										data-classbutton="btn btn-default"
+										data-classinput="form-control inline v-middle input-s"
+										type="file">
+									<div class="bootstrap-filestyle input-group">
+										<input class="form-control " disabled="" type="text">
+										<span tabindex="0"
+											class="group-span-filestyle input-group-btn"><label
+											for="filestyle-0" class="btn btn-default "><span
+												class="glyphicon glyphicon-folder-open"></span> Examinar...</label></span>
+									</div>
+								</div>
+							</div> -->
+							<br> 
+								<div class="col-md-2"></div>
+								<img id="blah" class="hide" src="" alt="Imagen de portada" height="394" width="260" />
+						</form>
+						
+						<p ng-show="pimg" class="text-center text-danger">
+							<small>Agregue una imagen de portada</small>
+						</p>
+						<p ng-show="prepit" class="text-center text-danger">
+							<small>Titulo de obra ya existe</small>
+						</p>
+				<div class="col-sm-12">
+					<button type="submit" ng-disabled="form.$invalid" ng-click="navWritting()" class="btn btn-sm btn-primary" style="margin-top:20px">Aceptar</button>
+					<button class="btn btn-sm btn-primary" style="margin-top:20px; margin-left:10px"><a href="#app/home">Cancelar</a></button>
+				</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>

@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+  <div class="panel panel-default">
+  
+    <div class="panel-heading">
+      Obras por invitación
+    </div>
+
+    
+    <div class="table-responsive"  >
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th style="text-align:center">Nombre obra</th>
+            <th style="text-align:center">Invitar a la obra</th>
+            <th style="text-align:center">Abandonar/Eliminar</th>
+            <th style="text-align:center">Total de colaboradores</th>
+            <th style="text-align:center">Entrar</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="wr in writting | orderBy:'writtingId':true | filter: {name: ''} " ng-show="wr.typeWritting == 'Por invitación'" >
+
+          <tr >
+            <td style="text-align:center">{{wr.name}}</td>
+            <td><button class="btn btn-success center-block icon-user-follow" ng-click="navInvitation(wr.mainWritting, wr.name, wr.cantUsers, wr.writtingId, wr)" ng-show="isOwnerList[$index]"></button></td>          
+        	<td>
+        		<button class="btn btn-sm glyphicon glyphicon-trash btn-danger center-block" ng-show="isOwnerList[$index]" ng-click="deleteWritting = !deleteWritting" ></button>
+        		<button class="btn btn-warning center-block icon-logout" ng-click="leaveWritting = !leaveWritting" ng-hide="isOwnerList[$index]"></button>
+					
+					<span ng-show="leaveWritting" style="text-align:center">
+						<p>
+							¿Desea abandonar la obra {{wr.name}} ?
+							<button class="btn btn-sm btn-default" ng-click="leave(wr)">Sí</button>
+							<button class="btn btn-sm btn-default" ng-click="leaveWritting = !leaveWritting">No</button>
+						</p>
+					</span>
+					<span ng-show="deleteWritting" style="text-align:center">
+						<p>
+							¿Desea eliminar la obra {{wr.name}} ?
+							<button class="btn btn-sm btn-default" ng-click="deletingWritting(wr.writtingId)">Sí</button>
+							<button class="btn btn-sm btn-default" ng-click="deleteWritting = !deleteWritting">No</button>
+						</p>
+					</span>
+			</td>
+            <td>            
+	            <select ng-click="getInviWritting(wr)" value="Colaboradores" class="center-block">
+	                <option ng-hide="pcolab" ng-click="pcolab = false">Colaboradores</option>
+	                <option ng-repeat="uv in usersInvited">{{uv}}</option>
+	             </select>
+            </td>	
+            <td><button class="btn btn-sm btn-info center-block icon-login" ng-click="saveData(wr.mainWritting, wr.name, wr.cantUsers, wr.writtingId, wr)"></button> </td>
+      
+          </tr>
+		 <!-- col-lg-2 -->
+  
+		 <!--<ul>
+	    	<li ng-repeat="uv in usersInvited" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+		        {{uv.author}}
+		        <span ng-show="hoverEdit"> <a>Edit</a> </span>
+	    	</li>
+		</ul>-->
+        </tbody>
+      </table>
+
+    </div>
+
+
+    </div>
+  </div>

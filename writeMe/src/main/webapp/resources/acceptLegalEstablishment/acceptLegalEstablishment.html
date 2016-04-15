@@ -1,0 +1,84 @@
+<meta charset="utf-8">
+<!-- content -->
+<div id="content" class="app-content" role="main">
+
+	<div class="app-content-body " ng-controller="acceptLegalCtrl">
+
+
+		<!-- This show the rules of the legal establishment -->
+		<div class="wrapper-md">
+			<div id="MostrarReglas" class=" panel panel-default">
+				<div class="panel-heading font-bold">Términos y condiciones</div>
+				<div class="m-l-lg"
+					ng-repeat="pane in legalList  | startFromGrid: currentPage * pageSize | limitTo: pageSize">
+					<h4>{{pane.name}}</h4>
+					<p>{{pane.description}}</p>
+				</div>
+
+				<!-- This show the pagination  -->
+				<div class="text-center m-t-lg m-b-lg">
+					<ul class="pagination pagination-md">
+						<!-- This show the last page -->
+						<li><a href="" ng-disabled='currentPage == 0'
+							ng-click='currentPage = currentPage - 1'><i
+								class="fa fa-chevron-left"></i></a></li>
+						<!-- Navigate to a specific page -->
+						<li><a href="" ng-click='currentPage = 0'>1</a></li>
+						<li><a href="" ng-click='currentPage = 1'>2</a></li>
+						<li><a href="" ng-click='currentPage = 2'>3</a></li>
+						<!-- Navigate to the next page -->
+						<li><a href=""
+							ng-disabled='currentPage >= data.length/pageSize - 1'
+							ng-click='currentPage = currentPage + 1'><i
+								class="fa fa-chevron-right"></i></a></li>
+					</ul>
+				</div>
+
+
+				<!-- Button navigate to signup -->
+				<div class=" col-lg-4"></div>
+				<div class=" col-lg-4">
+					<a ng-click="navSignup()" ui-sref="access.signup"
+						class="btn btn-lg btn-primary btn-block"> Continuar creando
+						cuenta</a>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+
+<style>
+button {
+	position: relative;
+	vertical-align: top;
+	height: 60px;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #3498db;
+	border: 0;
+	border-bottom: 2px solid #2a8bcc;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 -2px #2a8bcc;
+	box-shadow: inset 0 -2px #2a8bcc;
+}
+
+button:active {
+	top: 1px;
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+button:disabled {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	opacity: 0.5;
+}
+</style>

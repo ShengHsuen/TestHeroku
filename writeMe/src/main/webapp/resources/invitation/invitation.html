@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+     <div class="bg-light lter b-b wrapper-sm hidden-print">
+ 		 <h1 class="m-n font-thin h3 inline">{{"Invitar autores a " + name}}</h1>
+ 		 <button ng-click="pinvitation = !pinvitation" ng-disabled="guests.length == 0" class="pull-right btn btn-sm btn-primary">Enviar invitación</button>
+	</div>
+		<div ng-show="pinvitation" class="row bg-lightlter  b-b wrapper-sm hidden-print">
+			<h5 class="text-center m-n font-thin h5">¿Seguro que desea enviar la invitación?</h5>
+			<div class="btn-group col-md-2 col-md-offset-5 text-center">
+				<p>
+					<button ng-click="sendInvitation()" class="btn btn-sm btn-default">Sí</button>
+					<button ng-click="pinvitation = false" class="btn btn-sm btn-default">No</button>
+				</p>
+			</div>
+		</div> 	
+	<div class="bg-light lter b-b wrapper-sm hidden-print input-group">
+		<input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Buscar autores...">
+		<span class="input-group-btn">
+           <button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
+       </span>
+	</div>
+	<div class="bg-light lter b-b wrapper-sm hidden-print ">
+		<h5 class="m-n font-thin inline h5 pull-right">Disponibles por invitar: <kbd class="numberCircle">{{cantUsers}}</kbd></h5>
+		<h5 class="m-n font-thin h5">Invitados:<span ng-repeat="gu in guests" ng-click="takeoutGuest(gu)">{{"  &nbsp" + gu.author}}<a href><i class="fa fa-fw fa-times sm"></i></a></span></h5>
+	</div> 
+	<div class="text-center" class="hbox hbox-auto-xs hbox-auto-sm">
+  		<ul class="list-group">
+			<li ng-repeat="us in user | filter:{author:selected} | orderBy: 'author'" class="list-group-item">{{ " " + us.author}} <button ng-click="addGuest(us)" ng-disabled="cantUsers == 0" class="glyphicon glyphicon-plus pull-right" style="color:green" ng-required="required"></button></li>
+		</ul>
+	</div>
+  </div>
